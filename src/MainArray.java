@@ -1,9 +1,12 @@
+import model.Resume;
+import storage.ArrayStorage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Interactive test for ArrayStorage implementation
+ * Interactive test for storage.ArrayStorage implementation
  * (just run, no need to understand)
  */
 public class MainArray {
@@ -32,7 +35,7 @@ public class MainArray {
                     break;
                 case "save":
                     r = new Resume();
-                    r.uuid = uuid;
+                    r.setUuid(uuid);
                     ARRAY_STORAGE.save(r);
                     printAll();
                     break;
@@ -49,6 +52,11 @@ public class MainArray {
                     break;
                 case "exit":
                     return;
+                case "update":
+                    r = new Resume();
+                    r.setUuid(uuid);
+                    ARRAY_STORAGE.update(r);
+                    break;
                 default:
                     System.out.println("Неверная команда.");
                     break;
